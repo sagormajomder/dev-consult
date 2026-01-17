@@ -1,5 +1,5 @@
 import Footer from '@/components/layouts/Footer';
-import Header from '@/components/layouts/Header';
+import Header from '@/components/layouts/Header/Header';
 import type { Metadata } from 'next';
 import { Montserrat, Open_Sans } from 'next/font/google';
 import './globals.css';
@@ -27,9 +27,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${montserrat.variable} ${openSans.variable} antialiased bg-background text-foreground font-sans text-base`}>
+        className={`${montserrat.variable} ${openSans.variable} antialiased bg-background text-foreground font-sans text-base grid grid-rows-[auto_1fr_auto] min-h-dvh`}>
         <Header />
-        <main>{children}</main>
+        <main className='min-w-0'>{children}</main>
         <Footer />
       </body>
     </html>
