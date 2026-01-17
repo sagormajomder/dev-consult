@@ -1,11 +1,3 @@
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
-
-export default function Home() {
-  return (
-    <div>
-      <Button variant='default'>Click me</Button>
-      <p className='font-heading'>heading</p>
-    </div>
-  );
+export default function HomePage() {
+  return <section className='space-y-10'></section>;
 }
