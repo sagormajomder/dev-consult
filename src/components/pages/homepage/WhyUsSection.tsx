@@ -2,7 +2,7 @@ import { Clock, DollarSign, Users } from 'lucide-react';
 
 export default function WhyUsSection() {
   return (
-    <section className='py-20 lg:py-28 bg-[#f8f9fc] dark:bg-[#101622]'>
+    <section className='py-16 lg:py-24 bg-[#f8f9fc] dark:bg-[#101622]'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         <div className='mx-auto max-w-3xl text-center'>
           <h2 className='text-3xl font-bold tracking-tight text-[#0d121b] sm:text-4xl dark:text-white'>

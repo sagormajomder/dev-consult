@@ -18,7 +18,7 @@ export default function CTASection() {
   };
 
   return (
-    <section className='bg-[#135bec] py-20 lg:py-24'>
+    <section className='bg-[#135bec] py-16 lg:py-24'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         <div className='flex flex-col items-center text-center'>
           <h2 className='text-3xl font-black tracking-tight text-white sm:text-4xl'>

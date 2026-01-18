@@ -82,7 +82,7 @@ Follow these steps to get the project running on your local machine:
 
 ## Live URL
 
-#### 🚀 Live Project URL:
+#### 🚀 Live Project URL: https://dev-consult.vercel.app/
 
 ## Project Dependencies
 

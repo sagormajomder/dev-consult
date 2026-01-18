@@ -30,7 +30,7 @@ export default function ProcessSection() {
 
   return (
     <section
-      className='bg-slate-50 py-20 lg:py-28 dark:bg-slate-900'
+      className='bg-slate-50 py-16 lg:py-24 dark:bg-slate-900'
       id='process'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         <div className='grid gap-12 lg:grid-cols-2 lg:items-center'>

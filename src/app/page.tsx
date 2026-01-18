@@ -8,7 +8,7 @@ import WorkSection from '@/components/pages/homepage/WorkSection';
 
 export default function HomePage() {
   return (
-    <section className='space-y-10'>
+    <section>
       <HeroSection />
       <ServicesPreview />
       <WhyUsSection />

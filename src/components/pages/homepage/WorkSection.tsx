@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function WorkSection() {
   return (
-    <section className='bg-slate-50 py-20 lg:py-28 dark:bg-slate-900' id='work'>
+    <section className='bg-slate-50 py-16 lg:py-24 dark:bg-slate-900' id='work'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         <div className='flex flex-col items-center justify-between gap-4 md:flex-row mb-12'>
           <div>
@@ -15,12 +15,6 @@ export default function WorkSection() {
               Innovative projects we've shipped recently.
             </p>
           </div>
-          <Link
-            href='#'
-            className='group flex items-center gap-1 font-semibold text-[#135bec] hover:text-blue-700 pointer-events-none'>
-            View Full Portfolio
-            <ArrowRight className='w-5 h-5 transition-transform group-hover:translate-x-1' />
-          </Link>
         </div>
         <div className='grid gap-8 md:grid-cols-2'>
           {/* Project 1 */}
