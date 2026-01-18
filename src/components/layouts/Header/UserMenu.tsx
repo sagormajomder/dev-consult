@@ -59,7 +59,7 @@ export default function UserMenu() {
             <p className='text-sm font-bold text-slate-900 dark:text-white'>
               Guest User
             </p>
-            <p className='text-xs text-slate-500 truncate'>guest@example.com</p>
+            <p className='text-xs text-slate-500 truncate'>user@example.com</p>
           </div>
           <button
             onClick={handleLogout}

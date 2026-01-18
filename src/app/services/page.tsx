@@ -1,3 +1,4 @@
+import Container from '@/components/layouts/Container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -32,7 +33,7 @@ const IconMap: { [key: string]: any } = {
 
 export default function ServicesPage() {
   return (
-    <div className='container mx-auto py-8 px-4'>
+    <Container className='py-8'>
       {/* Header Section */}
       <div className='flex justify-between items-center mb-8'>
         <p className='text-slate-600 font-medium'>
@@ -113,6 +114,6 @@ export default function ServicesPage() {
           );
         })}
       </div>
-    </div>
+    </Container>
   );
 }

@@ -66,7 +66,7 @@ export default function MobileMenu() {
                     <p className='text-sm font-bold text-slate-900 dark:text-white'>
                       Guest User
                     </p>
-                    <p className='text-xs text-slate-500'>guest@example.com</p>
+                    <p className='text-xs text-slate-500'>user@example.com</p>
                   </div>
                 </div>
               )}
