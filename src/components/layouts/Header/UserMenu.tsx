@@ -1,5 +1,6 @@
 'use client';
 
+import { useAuth } from '@/context/AuthContext';
 import { LogOut } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -10,6 +11,8 @@ export default function UserMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const menuRef = useRef<HTMLDivElement>(null);
+
+  const { logout } = useAuth();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -25,10 +28,9 @@ export default function UserMenu() {
     try {
       const res = await fetch('/api/auth/logout', { method: 'POST' });
       if (res.ok) {
+        logout(); // Update global state
         toast.success('Logged out successfully');
-        router.refresh();
-        // Fallback refresh to push login state update if router.refresh is not enough
-        window.location.reload();
+        router.push('/');
       } else {
         toast.error('Failed to logout');
       }
@@ -46,6 +48,7 @@ export default function UserMenu() {
           src='https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=100&h=100&q=80'
           alt='User Profile'
           fill
+          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           className='object-cover'
         />
       </button>

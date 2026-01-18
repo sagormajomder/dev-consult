@@ -1,7 +1,6 @@
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import Container from '../Container';
 import Logo from '../Logo';
+import HeaderAuth from './HeaderAuth';
 import MobileMenu from './MobileMenu';
 import Navlinks from './Navlinks';
 
@@ -12,11 +11,11 @@ export default function Header() {
         <nav className='flex justify-between items-center'>
           <Logo />
           <Navlinks className='hidden md:flex items-center gap-3.5' />
-          <Link className='cursor-pointer' href='/login'>
-            <Button className='hidden md:inline-flex cursor-pointer'>
-              Login
-            </Button>
-          </Link>
+
+          <div className='hidden md:flex items-center gap-4'>
+            <HeaderAuth />
+          </div>
+
           <MobileMenu />
         </nav>
       </Container>

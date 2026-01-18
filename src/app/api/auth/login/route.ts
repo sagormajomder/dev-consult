@@ -20,6 +20,15 @@ export async function POST(request: Request) {
         path: '/',
       });
 
+      // Set a client-readable status cookie
+      response.cookies.set('login_status', 'true', {
+        httpOnly: false, // Visible to client
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        maxAge: 60 * 60 * 24, // 1 day
+        path: '/',
+      });
+
       return response;
     }
 

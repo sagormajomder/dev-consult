@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/context/AuthContext';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff } from 'lucide-react';
 import Link from 'next/link';
@@ -11,6 +12,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 export default function LoginPage() {
   const router = useRouter();
+  const { login } = useAuth();
   const {
     register,
     handleSubmit,
@@ -28,6 +30,7 @@ export default function LoginPage() {
 
       if (response.ok) {
         toast.success('Successfully logged in!');
+        login();
         router.push('/services');
       } else {
         toast.error('Invalid credentials');
