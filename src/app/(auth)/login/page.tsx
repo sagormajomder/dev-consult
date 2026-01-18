@@ -3,22 +3,39 @@
 import SocialButtons from '@/components/auth-pages/SocialButtons';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { Eye, EyeOff } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function LoginPage() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm();
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = async (data: any) => {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log(data);
-    toast.success('Successfully logged in!');
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast.success('Successfully logged in!');
+        router.push('/services');
+      } else {
+        toast.error('Invalid credentials');
+      }
+    } catch (error) {
+      toast.error('Login failed');
+    }
   };
 
   return (
@@ -35,11 +52,6 @@ export default function LoginPage() {
             href='/login'
             className='pb-3 text-sm font-semibold text-primary border-b-2 border-primary'>
             Login
-          </Link>
-          <Link
-            href='/register'
-            className='pb-3 text-sm font-medium text-slate-500 hover:text-slate-800'>
-            Sign Up
           </Link>
         </div>
 
@@ -97,15 +109,25 @@ export default function LoginPage() {
               </a>
             </div>
           </div>
-          <div className='mt-2'>
+          <div className='mt-2 relative'>
             <input
               id='password'
-              type='password'
+              type={showPassword ? 'text' : 'password'}
               placeholder='••••••••'
               autoComplete='current-password'
               className={`block w-full rounded-md border-0 py-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 pl-4 ${errors.password ? 'ring-red-500' : ''}`}
               {...register('password', { required: 'Password is required' })}
             />
+            <button
+              type='button'
+              onClick={() => setShowPassword(!showPassword)}
+              className='absolute inset-y-0 right-0 flex items-center pr-3 hover:text-primary transition-colors text-slate-400'>
+              {showPassword ? (
+                <EyeOff className='h-5 w-5' />
+              ) : (
+                <Eye className='h-5 w-5' />
+              )}
+            </button>
             {errors.password && (
               <p className='text-red-500 text-xs mt-1'>
                 {String(errors.password.message)}
@@ -122,7 +144,7 @@ export default function LoginPage() {
         </Button>
       </form>
 
-      <SocialButtons />
+      {/* <SocialButtons /> */}
 
       <p className='mt-8 text-center text-xs text-slate-500'>
         By signing in, you agree to our{' '}
