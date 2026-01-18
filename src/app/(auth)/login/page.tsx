@@ -1,6 +1,5 @@
 'use client';
 
-import SocialButtons from '@/components/auth-pages/SocialButtons';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff } from 'lucide-react';
