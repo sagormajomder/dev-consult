@@ -2,6 +2,7 @@ import Footer from '@/components/layouts/Footer';
 import Header from '@/components/layouts/Header/Header';
 import type { Metadata } from 'next';
 import { Montserrat, Open_Sans } from 'next/font/google';
+import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
 const montserrat = Montserrat({
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Header />
         <main className='min-w-0'>{children}</main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
