@@ -1,6 +1,7 @@
 import Footer from '@/components/layouts/Footer';
 import Header from '@/components/layouts/Header/Header';
 import { AuthProvider } from '@/context/AuthContext';
+import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Montserrat, Open_Sans } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
@@ -27,9 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className={cn('font-sans', openSans.variable)}>
       <body
-        className={`${montserrat.variable} ${openSans.variable} antialiased bg-background text-foreground font-sans text-base grid grid-rows-[auto_1fr_auto] min-h-dvh`}>
+        className={`${montserrat.variable} antialiased bg-background text-foreground text-base grid grid-rows-[auto_1fr_auto] min-h-dvh`}>
         <AuthProvider>
           <Header />
           <main className='min-w-0'>{children}</main>
